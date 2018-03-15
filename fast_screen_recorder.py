@@ -13,7 +13,7 @@ last_time = time.time()
 while(True):
     #Screen captured and stored in screen varaible its not numpy array type
     #bbox=(x1,y1,x2,y2) 
-    screen = np.array(ImageGrab.grab(bbox=(0,40,800,640)))
+    screen = np.array(ImageGrab.grab(bbox=(0,40,800,600)))
     
     #printing time taken in each loop or time taken to process each frame 
     print('Loop took {} seconds'.format(time.time()-last_time))
@@ -21,7 +21,7 @@ while(True):
     
     #Displaying image but color is off
     #Frame rate is very slow
-    cv2.imshow('Window', screen)
+    cv2.imshow('Window', cv2.cvtColor(screen, cv2.COLOR_BGR2RGB))
     if cv2.waitKey(25) & 0xFF == ord('q'):
         cv2.destroyAllWindows()
         break
